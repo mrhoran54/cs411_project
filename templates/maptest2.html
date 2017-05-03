@@ -7,7 +7,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
         <script type="text/javascript">
-        
+
         // check DOM Ready
         $(document).ready(function() {
             // execute
@@ -35,7 +35,7 @@
                                                                     ]
                 for (var i = 0; i < 10; i++) {
                     // init markers
-                    
+
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(
                             vals[i][0], vals[i][1]),
@@ -61,7 +61,7 @@
             function BAC() {
                 var x = document.getElementById("drink_num").value;
                 var gender_const = document.getElementById("gender").value;
-                
+
                 if (gender_const == "male") {
                     gender_const = 0.68;
                 } else {
@@ -70,11 +70,11 @@
                 var grams_alc = x * 14;
                 var weight = {{ weight["weight"] }};
                 var body_weight_grams = weight *454;
-            
+
                 var raw_number = grams_alc / (gender_const * body_weight_grams);// / body_weight_grams;
                 var percentage = raw_number * 100;
                 x = percentage;
-                document.getElementById('display').innerHTML = 
+                document.getElementById('display').innerHTML =
                     x ;
             }
         </script>
@@ -100,7 +100,7 @@
     font-weight: bold;
 	}
   body {
-    background: mediumaquamarine !important;
+    background: white !important;
     background-size: 100%;
   }
   .wrapper {
@@ -126,14 +126,14 @@ article {
 }
   </style>
     <body>
-        
+
     <div class="container">
     <nav>
         {% block content %}
         <!--<div id="message"> Hello {{ username }} !</div> -->
         <h2 id="message">{{ username }}, lets get you {{ drunk_level }} </h2>
         <img src='{{ user_picture_url }}' alt="" style="width:70px;height:70px;">
-        
+
         <br>
         <form>
             <label><b>Enter the number of drinks you have had so far (oz) :</b></label>
@@ -142,22 +142,22 @@ article {
             <input type="text" id = "gender">
         </form>
         <input type="submit" onclick="BAC();"><br/>
-        
-        
+
+
         <br>
         <label>Your BAC is : </label>
         <p><span id='display'></span></p>
     </nav>
-       
+
         <!-- THIS IS HOW YOU ACCESS THE HEIGHT WEIGHT AND GENDER
         <div id="message"> Hello {{ height['height'] }} !</div>
         <div id="message"> Hello {{ weight['weight'] }} !</div>
         <input type="text" name="Enter how many drinks you have had"><br> -->
-   
+
         <article id="map" height="460px" width="100%"></article>
         <article id="map_canvas" style="width: 800px; height:500px;"></article>
-    
-        
+
+
             {% endblock %}
         </div>
     </body>

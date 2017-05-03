@@ -23,7 +23,7 @@
     font-family: 'Roboto', serif;
     font-size: 18px;
     font-weight: bold;
-            
+
         }
 	p {
 		font-family: 'Roboto', serif;
@@ -31,7 +31,7 @@
     font-weight: bold;
 	}
   body {
-    background: lightcyan !important;
+    background: white !important;
     background-size: 100%;
   }
   .wrapper {
@@ -57,7 +57,7 @@
 	</div>
   <div class="container">
   <div class="row">
-  <p align="left" > New Profile</p>
+  <p align="center" style="font-size:36"> New Profile</p>
   <!-- form here -->
   <form action="" method="post" name="login">
       {{ form.hidden_tag() }} <!-- for security -->
@@ -83,14 +83,14 @@
     {% endfor %}<br>
 </p>
       <p>
-    Enter your height (ft):
-    {{ form.height(size=40) }}
+    Enter your height:
+    {{ form.height(size=10) }} ft
     {% for error in form.height.errors %}
       <span style="color: red;">[{{ error }}]</span>
     {% endfor %}
 </p><p>
-    and weight (lbs):
-    {{ form.weight(size=40) }}
+    and weight:
+    {{ form.weight(size=10) }} lbs
     {% for error in form.weight.errors %}
       <span style="color: red;">[{{ error }}]</span>
     {% endfor %}<br>
